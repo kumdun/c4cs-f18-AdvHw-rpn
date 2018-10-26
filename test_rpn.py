@@ -5,3 +5,9 @@ class TestBasics(unittest.TestCase):
     def test_add(self):
         result = rpn.calculate("1 1 +")
         self.assertEqual(2, result)
+    def test_sub(self):
+        result = rpn.calculate("1 1 -")
+        self.assertEqual(0, result)
+    def test_too_many(self):
+        with self.assertRaises(ValueError):
+            result = rpn.calculate('1 2 3 +')
